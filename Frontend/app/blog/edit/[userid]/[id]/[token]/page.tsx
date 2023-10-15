@@ -8,11 +8,8 @@ type UpdateBlogParams = {
     description: string;
     id: string;
 };
-const updateBlog = async (data: UpdateBlogParams) => {
-    const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjk4ZDkxNWIzOGU2YWIzYjZjODA3NyIsImlhdCI6MTY5NzIyMjE2NH0.MxUru6Sq98QJK39pOzd8x-_al7WSQlumnmwvcwSgn98";
-
-    const res = fetch(`http://localhost:3001/post/${data.id}/update`, {
+const updateBlog = async (data: UpdateBlogParams, id: string, token: string) => {
+    const res = fetch(`http://localhost:3001/post/${id}/update`, {
         method: "PATCH",
         body: JSON.stringify({
             heading: data.title,
@@ -28,10 +25,7 @@ const updateBlog = async (data: UpdateBlogParams) => {
     return (await res).json();
 };
 
-const deleteBlog = async (id: string) => {
-    const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjk4ZDkxNWIzOGU2YWIzYjZjODA3NyIsImlhdCI6MTY5NzIyMjE2NH0.MxUru6Sq98QJK39pOzd8x-_al7WSQlumnmwvcwSgn98";
-
+const deleteBlog = async (id: string, token: string) => {
     const res = fetch(`http://localhost:3001/post/${id}/delete`, {
         method: "DELETE",
         headers: {
@@ -44,10 +38,7 @@ const deleteBlog = async (id: string) => {
     return (await res).json();
 };
 
-const getBlogById = async (id: string) => {
-    const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjk4ZDkxNWIzOGU2YWIzYjZjODA3NyIsImlhdCI6MTY5NzIyMjE2NH0.MxUru6Sq98QJK39pOzd8x-_al7WSQlumnmwvcwSgn98";
-
+const getBlogById = async (id: string, token: string) => {
     const res = await fetch(`http://localhost:3001/post/${id}`, {
         method: "GET",
         headers: {
@@ -59,14 +50,14 @@ const getBlogById = async (id: string) => {
     return data;
 };
 
-const EditBlog = ({ params }: { params: { id: string } }) => {
+const EditBlog = ({ params }: { params: { userid: string, id: string, token: string } }) => {
     const router = useRouter();
     const titleRef = useRef<HTMLInputElement | null>(null);
     const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
 
     useEffect(() => {
         toast.loading("Fetching Blog Details 🚀", { id: "1" });
-        getBlogById(params.id)
+        getBlogById(params.id, params.token)
             .then((data) => {
                 if (data) {
                     if (titleRef.current && descriptionRef.current) {
@@ -90,16 +81,19 @@ const EditBlog = ({ params }: { params: { id: string } }) => {
                 title: titleRef.current?.value,
                 description: descriptionRef.current?.value,
                 id: params.id,
-            });
+            },
+            params.id,           
+            params.token,            
+            );
             toast.success("Blog Posted Successfully", { id: "1" });
-            await router.push("/");
+            await router.push(`/blog/home/${params.userid}/${params.token}`);
         }
     };
     const handleDelete = async () => {
         toast.loading("Deleting Blog", { id: "2" });
-        await deleteBlog(params.id);
+        await deleteBlog(params.id, params.token);
         toast.success("Blog Deleted", { id: "2" });
-        router.push("/");
+        await router.push(`/blog/home/${params.userid}/${params.token}`);
     };
     return (
         <Fragment>

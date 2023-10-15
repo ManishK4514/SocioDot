@@ -9,15 +9,15 @@ const postBlog = async ({
     title,
     description,
     image,
+    userId,
+    token,
 }: {
     author: string;
     title: string;
     description: string;
     image: File;
+    token: string;
 }) => {
-    const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Mjk4ZDkxNWIzOGU2YWIzYjZjODA3NyIsImlhdCI6MTY5NzIyMjE2NH0.MxUru6Sq98QJK39pOzd8x-_al7WSQlumnmwvcwSgn98";
-    const userId = "652af1e9ba30ebfaaa76b04f";
     var url = "";
 
     const data = new FormData();
@@ -56,7 +56,7 @@ const postBlog = async ({
         });
 };
 
-const AddBlog = () => {
+const AddBlog = ({ params }: { params: { userid: string, token: string } }) => {
     const router = useRouter();
     const authorRef = useRef<HTMLInputElement | null>(null);
     const titleRef = useRef<HTMLInputElement | null>(null);
@@ -80,9 +80,9 @@ const AddBlog = () => {
 
             toast.loading("Sending Request 🚀", { id: "1" });
             try {
-                await postBlog({ author, title, description, image });
+                await postBlog({ author, title, description, image, userId: params.userid, token: params.token });
                 toast.success("Blog Posted Successfully", { id: "1" });
-                router.push("/");
+                router.push(`/blog/home/${params.userid}/${params.token}`);
             } catch (error) {
                 toast.error("Error posting the blog", { id: "1" });
             }
