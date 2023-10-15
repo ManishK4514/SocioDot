@@ -32,7 +32,7 @@ const HomeBlog = async ({ params }: { params: { userid: string, token: string } 
                     href={`/blog/add/${params.userid}/${params.token}`}
                     className=" md:w-1/6 sm:w-2/4 text-center rounded-md p-2 m-auto bg-slate-200 font-semibold"
                 >
-                    Add New Blog 🚀
+                    Add New Blog 📝
                 </Link>
             </div>
             {/* Blogs */}
@@ -53,12 +53,14 @@ const HomeBlog = async ({ params }: { params: { userid: string, token: string } 
                                     {post.heading}
                                 </h2>
                             </div>
-                            <Link
-                                href={`/blog/edit/${params.userid}/${post._id}/${params.token}`}
-                                className="px-4 py-1  text-center text-xl bg-slate-900 rounded-md font-semibold text-slate-200"
-                            >
-                                Edit
-                            </Link>
+                            {params.userid === post.userId && (
+                                <Link
+                                    href={`/blog/edit/${params.userid}/${post._id}/${params.token}`}
+                                    className="px-4 py-1  text-center text-xl bg-slate-900 rounded-md font-semibold text-slate-200"
+                                >
+                                    Edit
+                                </Link>
+                            )}
                         </div>
                         {/* Date & Description */}
                         <div className="mr-auto my-1">

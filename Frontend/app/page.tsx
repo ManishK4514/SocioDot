@@ -7,12 +7,6 @@ import { Fragment, useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
 
 const postLogin = async ({ email, password, name }) => {
-    console.log("email", email);
-    console.log("password", password);
-    console.log("name", name);
-    
-    
-    
     const res = await fetch("http://localhost:3001/auth/login", {
         method: "POST",
         body: JSON.stringify({ email, password, name }),
