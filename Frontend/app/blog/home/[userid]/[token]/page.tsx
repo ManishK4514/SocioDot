@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 const fetchBlogs = async (token: string) => {
-    const res = await fetch("http://localhost:3001/post", {
+    const res = await fetch("https://oyster-app-2xnwc.ondigitalocean.app/post", {
         next: {
             revalidate: 1,
         },
@@ -14,9 +14,13 @@ const fetchBlogs = async (token: string) => {
     const data = await res.json();
 
     return data.posts;
-}
+};
 
-const HomeBlog = async ({ params }: { params: { userid: string, token: string } }) => {
+const HomeBlog = async ({
+    params,
+}: {
+    params: { userid: string; token: string };
+}) => {
     const posts = await fetchBlogs(params.token);
 
     return (
@@ -70,6 +74,26 @@ const HomeBlog = async ({ params }: { params: { userid: string, token: string } 
                         </div>
                         <div className=" mr-auto my-1">
                             <h2>{post.description}</h2>
+                        </div>
+                        {/* Comments */}
+                        <div className="mt-4">
+                            <h3 className="font-semibold">Comments:</h3>
+                            {post.Comments.map((comment: any) => (
+                                <div className="flex items-center my-2">
+                                    <img
+                                        src={comment.userPicturePath}
+                                        alt={`${comment.firstName} ${comment.lastName}`}
+                                        className="w-8 h-8 rounded-full mr-2"
+                                    />
+                                    <div>
+                                        <p className="font-semibold">
+                                            {comment.firstName}{" "}
+                                            {comment.lastName}:
+                                        </p>
+                                        <p>{comment.comment}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 ))}

@@ -34,7 +34,7 @@ const postBlog = async ({
             console.log(data.url);
             url = data.url;
 
-            const res = await fetch("http://localhost:3001/post", {
+            const res = await fetch("https://oyster-app-2xnwc.ondigitalocean.app/post", {
                 method: "POST",
                 body: JSON.stringify({
                     userId,

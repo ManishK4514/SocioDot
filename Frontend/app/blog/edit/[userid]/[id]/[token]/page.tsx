@@ -9,7 +9,7 @@ type UpdateBlogParams = {
     id: string;
 };
 const updateBlog = async (data: UpdateBlogParams, id: string, token: string) => {
-    const res = fetch(`http://localhost:3001/post/${id}/update`, {
+    const res = fetch(`https://oyster-app-2xnwc.ondigitalocean.app/post/${id}/update`, {
         method: "PATCH",
         body: JSON.stringify({
             heading: data.title,
@@ -26,7 +26,7 @@ const updateBlog = async (data: UpdateBlogParams, id: string, token: string) => 
 };
 
 const deleteBlog = async (id: string, token: string) => {
-    const res = fetch(`http://localhost:3001/post/${id}/delete`, {
+    const res = fetch(`https://oyster-app-2xnwc.ondigitalocean.app/post/${id}/delete`, {
         method: "DELETE",
         headers: {
             Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ const deleteBlog = async (id: string, token: string) => {
 };
 
 const getBlogById = async (id: string, token: string) => {
-    const res = await fetch(`http://localhost:3001/post/${id}`, {
+    const res = await fetch(`https://oyster-app-2xnwc.ondigitalocean.app/post/${id}`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`,

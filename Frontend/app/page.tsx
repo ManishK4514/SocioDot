@@ -7,7 +7,7 @@ import { Fragment, useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
 
 const postLogin = async ({ email, password, name }) => {
-    const res = await fetch("http://localhost:3001/auth/login", {
+    const res = await fetch("https://oyster-app-2xnwc.ondigitalocean.app/auth/login", {
         method: "POST",
         body: JSON.stringify({ email, password, name }),
         headers: {
@@ -24,7 +24,7 @@ const postLogin = async ({ email, password, name }) => {
 };
 
 const postSignup = async ({ email, password, name }) => {
-    const res = await fetch("http://localhost:3001/auth/register", {
+    const res = await fetch("https://oyster-app-2xnwc.ondigitalocean.app/auth/register", {
         method: "POST",
         body: JSON.stringify({ email, password, name }),
         headers: {
