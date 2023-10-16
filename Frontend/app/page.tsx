@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Fragment, useRef } from "react";
 import { Toaster, toast } from "react-hot-toast";
 
-const postLogin = async ({ email, password, name }) => {
+const postLogin = async ({ email, password, name }: { email: string; password: string; name: string }) => {
     const res = await fetch("https://oyster-app-2xnwc.ondigitalocean.app/auth/login", {
         method: "POST",
         body: JSON.stringify({ email, password, name }),
@@ -23,7 +23,7 @@ const postLogin = async ({ email, password, name }) => {
     return data;
 };
 
-const postSignup = async ({ email, password, name }) => {
+const postSignup = async ({ email, password, name }: { email: string; password: string; name: string }) => {
     const res = await fetch("https://oyster-app-2xnwc.ondigitalocean.app/auth/register", {
         method: "POST",
         body: JSON.stringify({ email, password, name }),
@@ -51,7 +51,7 @@ export default function Home() {
                 const data = await postLogin({
                     email: emailRef.current?.value,
                     password: passwordRef.current?.value,
-                    name: nameRef.current?.value,
+                    name: nameRef.current?.value ?? "",
                 });
                 
                 if (data.token) {
@@ -66,7 +66,7 @@ export default function Home() {
                 await postSignup({
                     email: emailRef.current?.value,
                     password: passwordRef.current?.value,
-                    name: nameRef.current?.value,
+                    name: nameRef.current?.value ?? "",
                 });
                 toast.success("Signup Successful", { id: "1" });
                 setIsLogin(true);
