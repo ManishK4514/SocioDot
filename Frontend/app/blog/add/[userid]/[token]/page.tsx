@@ -16,6 +16,7 @@ const postBlog = async ({
     title: string;
     description: string;
     image: File;
+    userId: string;
     token: string;
 }) => {
     var url = "";
