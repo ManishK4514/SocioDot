@@ -1,10 +1,7 @@
     Last updated on: 16th October 2023
 
-<div align=center>
-    <a href="https://sociodotblog.vercel.app/">
-        <img width="702" src="https://i.ibb.co/gTdpzhp/Screenshot-2023-10-16-112011.png" alt="sociopedia">
-    </a>
-</div>
+![Screenshot 2023-10-16 112011](https://github.com/ManishK4514/SocioDot/assets/108109935/034b9983-db4b-44bc-af75-26cffd578af6)
+![Screenshot 2023-10-16 112027](https://github.com/ManishK4514/SocioDot/assets/108109935/422b5447-95ef-4691-8e42-6d2e8efad586)
 
 # [SocioDot: A Blog Web-App](https://sociodotblog.vercel.app/)
 
@@ -102,5 +99,9 @@ Please refer to the project's documentation or README files for detailed instruc
 
 
 ## Preview
+![Screenshot 2023-10-16 112011](https://github.com/ManishK4514/SocioDot/assets/108109935/034b9983-db4b-44bc-af75-26cffd578af6)
+![Screenshot 2023-10-16 112027](https://github.com/ManishK4514/SocioDot/assets/108109935/422b5447-95ef-4691-8e42-6d2e8efad586)
+
+
 [line]: https://user-images.githubusercontent.com/75939390/137615281-3a875960-92cc-407f-97fe-fd2319bdb252.png
 [badges]: https://github.com/Ileriayo/markdown-badges
