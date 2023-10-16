@@ -17,8 +17,6 @@
 - [Tech Stack Used](#tech-stack-used)
 - [Installation](#installation)
 - [Preview](#preview)
-- [Contribution](#Contribution)
-- [License](#license)
 
 ![line]
 
@@ -54,14 +52,14 @@
 - Vercel: Frontend Hosting
 - Digital Ocean: Back-End Web Services
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) ![Material UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white) ![JWT](https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) 
+![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)  ![JWT](https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) 
 
 
 ![line]
 
 ## Installation
 
-To set up and run the SocialCircle application locally, follow these steps:
+To set up and run the SocioDot application locally, follow these steps:
 
 - Clone the repository:
 
@@ -69,7 +67,7 @@ To set up and run the SocialCircle application locally, follow these steps:
     
 - Install the dependencies in both the client-side and server-side directories:
 
-      cd SocoDot/Frontend
+      cd SocioDot/Frontend
       npm install
 
       cd ../Backend
