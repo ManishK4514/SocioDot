@@ -42,7 +42,7 @@ const HomeBlog = async ({
             {/* Blogs */}
             <div className="w-full flex  flex-col justify-center items-center">
                 {posts?.map((post: any) => (
-                    <div className="w-3/4 p-4 rounded-md mx-3 my-2 bg-slate-200 flex flex-col justify-center">
+                    <div className="w-3/4 p-4 rounded-md mx-3 my-2 bg-slate-200 flex flex-col justify-center" key={post.id}>
                         {post.filePath && (
                             <img
                                 src={post.filePath}
@@ -79,7 +79,7 @@ const HomeBlog = async ({
                         <div className="mt-4">
                             <h3 className="font-semibold">Comments:</h3>
                             {post.Comments.map((comment: any) => (
-                                <div className="flex items-center my-2">
+                                <div className="flex items-center my-2" key={comment.id}>
                                     <img
                                         src={comment.userPicturePath}
                                         alt={`${comment.firstName} ${comment.lastName}`}
